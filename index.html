@@ -1,7 +1,179 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <style>
+        :root {
+            --bg-color: #0d1117; /* GitHub Dark Dimmed */
+            --text-color: #c9d1d9;
+            --accent-color: #58a6ff; /* GitHub Blue */
+            --card-bg: #161b22;
+            --border-color: #30363d;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            padding: 4rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        h1 {
+            color: #ffffff;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .role {
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        /* Sections */
+        section {
+            padding: 2rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        h2 {
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Projects Grid */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 1.5rem;
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-color);
+        }
+
+        .card h3 {
+            margin-top: 0;
+            color: #ffffff;
+        }
+
+        .tech-stack {
+            font-size: 0.85rem;
+            color: #8b949e;
+            margin-top: 1rem;
+        }
+
+        /* Links */
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+            color: #8b949e;
+        }
+    </style>
+</head>
 <body>
-  <h1>Hello World</h1>
-  <p>This is my personal website hosted on GitHub Pages!</p>
+
+    <div class="container">
+        
+        <header>
+            <h1>[Your Name]</h1>
+            <p class="role">Computer Science Student & Developer</p>
+            <p>Building scalable systems and exploring AI.</p>
+            
+            <div class="social-links">
+                <a href="https://github.com/your-username">GitHub</a>
+                <a href="https://linkedin.com/in/your-linkedin">LinkedIn</a>
+                <a href="mailto:your-email@example.com">Email</a>
+            </div>
+        </header>
+
+        <section>
+            <h2>About Me</h2>
+            <p>
+                Hello! I am a software enthusiast currently pursuing my Master's in Computer Science. 
+                I love solving complex problems and working with new technologies.
+                When I'm not coding, you can find me [mention a hobby].
+            </p>
+        </section>
+
+        <section>
+            <h2>Projects</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Project Name 1</h3>
+                    <p>A brief description of what this project does and the problem it solves.</p>
+                    <div class="tech-stack">Python • TensorFlow • AWS</div>
+                    <br>
+                    <a href="#">View Code →</a>
+                </div>
+
+                <div class="card">
+                    <h3>Project Name 2</h3>
+                    <p>Description of another cool project. Maybe a web app or a tool you built.</p>
+                    <div class="tech-stack">React • Node.js • MongoDB</div>
+                    <br>
+                    <a href="#">View Code →</a>
+                </div>
+
+                <div class="card">
+                    <h3>Project Name 3</h3>
+                    <p>Description of a third project to show your variety of skills.</p>
+                    <div class="tech-stack">Java • SQL • Docker</div>
+                    <br>
+                    <a href="#">View Code →</a>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>© 2025 [Your Name]. Built with GitHub Pages.</p>
+        </footer>
+
+    </div>
+
 </body>
 </html>
