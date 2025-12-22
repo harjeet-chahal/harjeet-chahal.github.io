@@ -9,6 +9,7 @@
             --bg-color: #0d1117; /* GitHub Dark Dimmed */
             --text-color: #c9d1d9;
             --accent-color: #58a6ff; /* GitHub Blue */
+            --btn-color: #238636; /* GitHub Green for primary actions */
             --card-bg: #161b22;
             --border-color: #30363d;
         }
@@ -51,6 +52,23 @@
             font-size: 0.95rem;
             color: #8b949e;
             margin-top: 0.5rem;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            background-color: var(--btn-color);
+            color: #ffffff;
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            transition: opacity 0.2s;
+        }
+        
+        .btn:hover {
+            opacity: 0.9;
+            text-decoration: none;
         }
 
         /* Sections */
@@ -137,17 +155,19 @@
                 <a href="mailto:he1242@scarletmail.rutgers.edu">Email</a>
                 <a href="https://leetcode.com/u/harjeetchahal/">LeetCode</a>
             </div>
+
+            <a href="./Harjeet_Singh_Chahal_Resume_MSCS.pdf" class="btn" target="_blank">Download Resume</a>
         </header>
 
         <section>
             <h2>About Me</h2>
             <p>
-                I am a Master of Science in Computer Science student at Rutgers University (Class of 2027), specializing in AI and Machine Learning. 
-                I hold a B.Tech in CS + AI from NSUT, India.
+                [cite_start]I am a Master of Science in Computer Science student at Rutgers University (Class of 2027), specializing in AI and Machine Learning[cite: 4, 5, 6]. 
+                [cite_start]I hold a B.Tech in CS + AI from NSUT, India[cite: 9, 12].
             </p>
             <p>
-                Previously, I worked as a Business Analyst at Dhruv Research, where I analyzed large-scale election datasets using SQL and Python to identify voter trends.
-                I am passionate about building trustworthy AI systems and have an active coding streak of over 1000 days.
+                [cite_start]Previously, I worked as a Business Analyst at Dhruv Research, where I analyzed large-scale election datasets using SQL and Python to identify voter trends[cite: 16, 18].
+                [cite_start]I am passionate about building trustworthy AI systems and have an active coding streak of over 1000 days[cite: 45].
             </p>
         </section>
 
@@ -156,7 +176,7 @@
             <div class="grid">
                 <div class="card">
                     <h3>PneumoXAΙ</h3>
-                    <p>Trustworthy medical diagnostics tool. Built a ResNet50 pneumonia classifier (0.978 AUC) with explainable AI (Grad-CAM, LIME) for clinician validation.</p>
+                    <p>Trustworthy medical diagnostics tool. [cite_start]Built a ResNet50 pneumonia classifier (0.978 AUC) with explainable AI (Grad-CAM, LIME) for clinician validation[cite: 29, 30, 31].</p>
                     <div class="tech-stack">PyTorch • OpenCV • XAI</div>
                     <br>
                     <a href="https://github.com/harjeet-chahal">View Code →</a>
@@ -164,7 +184,7 @@
 
                 <div class="card">
                     <h3>VideoQuery RAG</h3>
-                    <p>A video RAG pipeline designed to handle the "semantic gap" in video retrieval. Uses timestamp injection and CLIP embeddings for precise alignment.</p>
+                    <p>A video RAG pipeline designed to handle the "semantic gap" in video retrieval. [cite_start]Uses timestamp injection and CLIP embeddings for precise alignment[cite: 34, 35, 36].</p>
                     <div class="tech-stack">PyTorch • Transformers • LLMs</div>
                     <br>
                     <a href="https://github.com/harjeet-chahal">View Code →</a>
@@ -172,7 +192,7 @@
 
                 <div class="card">
                     <h3>Toxicity Detection</h3>
-                    <p>Multi-label toxicity detection system using ROBERTa. Achieved 0.98 ROC-AUC and deployed with robust handling for typos and noise.</p>
+                    <p>Multi-label toxicity detection system using ROBERTa. [cite_start]Achieved 0.98 ROC-AUC and deployed with robust handling for typos and noise[cite: 38, 41].</p>
                     <div class="tech-stack">ROBERTa • FastAPI • Docker</div>
                     <br>
                     <a href="https://github.com/harjeet-chahal">View Code →</a>
