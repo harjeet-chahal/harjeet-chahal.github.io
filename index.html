@@ -1,210 +1,279 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Harjeet Singh Chahal | Portfolio</title>
-    <style>
-        :root {
-            --bg-color: #0d1117; /* GitHub Dark Dimmed */
-            --text-color: #c9d1d9;
-            --accent-color: #58a6ff; /* GitHub Blue */
-            --btn-color: #238636; /* GitHub Green for primary actions */
-            --card-bg: #161b22;
-            --border-color: #30363d;
-        }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Harjeet Singh Chahal | MSCS @ Rutgers</title>
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-        }
+<style>
+:root {
+  --bg: #0d1117;
+  --card: #161b22;
+  --border: #30363d;
+  --text: #c9d1d9;
+  --muted: #8b949e;
+  --accent: #58a6ff;
+  --accent-soft: rgba(88,166,255,0.15);
+}
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
+* { box-sizing: border-box; }
 
-        /* Header */
-        header {
-            text-align: center;
-            padding: 4rem 0;
-            border-bottom: 1px solid var(--border-color);
-        }
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+}
 
-        h1 {
-            color: #ffffff;
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-        }
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+}
 
-        .role {
-            color: var(--accent-color);
-            font-size: 1.2rem;
-            font-weight: 600;
-        }
-        
-        .sub-role {
-            font-size: 0.95rem;
-            color: #8b949e;
-            margin-top: 0.5rem;
-        }
+/* ---------- HEADER ---------- */
+header {
+  text-align: center;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid var(--border);
+}
 
-        /* Buttons */
-        .btn {
-            display: inline-block;
-            background-color: var(--btn-color);
-            color: #ffffff;
-            padding: 0.6rem 1.2rem;
-            border-radius: 6px;
-            font-weight: 600;
-            margin-top: 1.5rem;
-            transition: opacity 0.2s;
-        }
-        
-        .btn:hover {
-            opacity: 0.9;
-            text-decoration: none;
-        }
+h1 {
+  font-size: 2.8rem;
+  color: #fff;
+  margin-bottom: 0.3rem;
+}
 
-        /* Sections */
-        section {
-            padding: 2rem 0;
-            border-bottom: 1px solid var(--border-color);
-        }
+.gradient-line {
+  width: 120px;
+  height: 4px;
+  margin: 0.8rem auto;
+  background: linear-gradient(90deg, var(--accent), #9ecbff);
+  border-radius: 2px;
+}
 
-        h2 {
-            color: #ffffff;
-            margin-bottom: 1.5rem;
-        }
+.role {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--accent);
+}
 
-        /* Projects Grid */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-        }
+.sub-role {
+  font-size: 0.95rem;
+  color: var(--muted);
+  margin-top: 0.4rem;
+}
 
-        .card {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            padding: 1.5rem;
-            transition: transform 0.2s;
-        }
+.socials {
+  display: flex;
+  justify-content: center;
+  gap: 1.8rem;
+  margin-top: 1.2rem;
+}
 
-        .card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent-color);
-        }
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
 
-        .card h3 {
-            margin-top: 0;
-            color: #ffffff;
-        }
+a:hover { text-decoration: underline; }
 
-        .tech-stack {
-            font-size: 0.85rem;
-            color: #8b949e;
-            margin-top: 1rem;
-            font-family: monospace;
-        }
+.btn {
+  display: inline-block;
+  margin-top: 1.8rem;
+  padding: 0.65rem 1.4rem;
+  background: var(--accent);
+  color: #000;
+  border-radius: 6px;
+  font-weight: 700;
+}
 
-        /* Links */
-        a {
-            color: var(--accent-color);
-            text-decoration: none;
-        }
+/* ---------- SECTIONS ---------- */
+section {
+  padding: 3rem 0;
+  border-bottom: 1px solid var(--border);
+}
 
-        a:hover {
-            text-decoration: underline;
-        }
+h2 {
+  color: #fff;
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+}
 
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-top: 1rem;
-        }
+/* ---------- CARDS ---------- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.6rem;
+}
 
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 2rem;
-            font-size: 0.9rem;
-            color: #8b949e;
-        }
-    </style>
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1.6rem;
+  transition: transform 0.25s, border-color 0.25s;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  border-color: var(--accent);
+}
+
+.card h3 {
+  color: #fff;
+  margin-top: 0;
+}
+
+.meta {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 0.6rem;
+}
+
+.stack {
+  margin-top: 0.9rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+  font-family: monospace;
+}
+
+/* ---------- EXPERIENCE ---------- */
+.exp {
+  margin-bottom: 2rem;
+}
+
+.exp h3 {
+  margin-bottom: 0.3rem;
+  color: #fff;
+}
+
+.exp span {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* ---------- FOOTER ---------- */
+footer {
+  text-align: center;
+  padding-top: 2rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+</style>
 </head>
+
 <body>
+<div class="container">
 
-    <div class="container">
-        
-        <header>
-            <h1>Harjeet Singh Chahal</h1>
-            <p class="role">MSCS Student @ Rutgers University</p>
-            <p class="sub-role">Ex-Associate Business Analyst @ Dhruv Research | 1300+ LeetCode Problems Solved</p>
-            
-            <div class="social-links">
-                <a href="https://github.com/harjeet-chahal">GitHub</a>
-                <a href="https://linkedin.com/in/harjeet-singh-chahal/">LinkedIn</a>
-                <a href="mailto:he1242@scarletmail.rutgers.edu">Email</a>
-                <a href="https://leetcode.com/u/harjeetchahal/">LeetCode</a>
-            </div>
+<header>
+  <h1>Harjeet Singh Chahal</h1>
+  <div class="gradient-line"></div>
+  <div class="role">MS in Computer Science @ Rutgers University</div>
+  <div class="sub-role">
+    AI/ML • Distributed Systems • Full-Stack • 1400+ LeetCode Problems
+  </div>
 
-            <a href="./Harjeet_Singh_Chahal_Resume_MSCS.pdf" class="btn" target="_blank">Download Resume</a>
-        </header>
+  <div class="socials">
+    <a href="https://github.com/harjeet-chahal">GitHub</a>
+    <a href="https://linkedin.com/in/harjeet-singh-chahal/">LinkedIn</a>
+    <a href="mailto:hc1242@scarletmail.rutgers.edu">Email</a>
+    <a href="https://leetcode.com/u/harjeetchahal/">LeetCode</a>
+  </div>
 
-        <section>
-            <h2>About Me</h2>
-            <p>
-                I am a Master of Science in Computer Science student at Rutgers University (Class of 2027), specializing in AI and Machine Learning. 
-                I hold a B.Tech in CS + AI from NSUT, India.
-            </p>
-            <p>
-                Previously, I worked as an Associate Business Analyst at Dhruv Research, where I analyzed large-scale election datasets using SQL and Python to identify voter trends.
-                I am passionate about building trustworthy AI systems and have an active coding streak of over 1100 days.
-            </p>
-        </section>
+  <a class="btn" href="./Harjeet_Singh_Chahal_Resume_MSCS.pdf" target="_blank">Download Resume</a>
+</header>
 
-        <section>
-            <h2>Featured Projects</h2>
-            <div class="grid">
-                <div class="card">
-                    <h3>PneumoXAΙ</h3>
-                    <p>Trustworthy medical diagnostics tool. [cite_start]Built a ResNet50 pneumonia classifier (0.978 AUC) with explainable AI (Grad-CAM, LIME) for clinician validation[cite: 29, 30, 31].</p>
-                    <div class="tech-stack">PyTorch • OpenCV • XAI</div>
-                    <br>
-                    <a href="https://github.com/harjeet-chahal">View Code →</a>
-                </div>
+<section>
+<h2>About Me</h2>
+<p>
+I am a Master’s student in Computer Science at Rutgers University (GPA: 4.0/4.0), specializing in
+Artificial Intelligence, Machine Learning, and Distributed Systems.
+</p>
+<p>
+Previously, I worked at Dhruv Research analyzing large-scale election datasets (200K+ responses)
+using Python and SQL, building automated pipelines and dashboards for real-world decision-making.
+I am deeply interested in building reliable, trustworthy, and scalable AI systems.
+</p>
+</section>
 
-                <div class="card">
-                    <h3>VideoQuery RAG</h3>
-                    <p>A video RAG pipeline designed to handle the "semantic gap" in video retrieval. [cite_start]Uses timestamp injection and CLIP embeddings for precise alignment[cite: 34, 35, 36].</p>
-                    <div class="tech-stack">PyTorch • Transformers • LLMs</div>
-                    <br>
-                    <a href="https://github.com/harjeet-chahal">View Code →</a>
-                </div>
+<section>
+<h2>Experience</h2>
 
-                <div class="card">
-                    <h3>Toxicity Detection</h3>
-                    <p>Multi-label toxicity detection system using ROBERTa. [cite_start]Achieved 0.98 ROC-AUC and deployed with robust handling for typos and noise[cite: 38, 41].</p>
-                    <div class="tech-stack">ROBERTa • FastAPI • Docker</div>
-                    <br>
-                    <a href="https://github.com/harjeet-chahal">View Code →</a>
-                </div>
-            </div>
-        </section>
+<div class="exp">
+  <h3>Dhruv Research — Associate Business Analyst</h3>
+  <span>Jan 2025 – May 2025 | Gurugram, India</span>
+  <p>
+Processed national and state-level election survey data using Python and SQL, automated data
+pipelines reducing turnaround time by 30%, and collaborated directly with senior leadership on
+client-facing insights.
+  </p>
+</div>
 
-        <footer>
-            <p>© 2025 Harjeet Singh Chahal.</p>
-        </footer>
+<div class="exp">
+  <h3>Dhruv Research — Analytics Intern</h3>
+  <span>Sep 2024 – Dec 2024</span>
+  <p>
+Supported large-scale survey analysis (200K+ records), validated demographic sampling, and built
+automated Google Sheets trackers for vote-share estimation.
+  </p>
+</div>
+</section>
 
-    </div>
+<section>
+<h2>Featured Projects</h2>
 
+<div class="grid">
+
+<div class="card">
+  <h3>Distributed Rate Limiter</h3>
+  <div class="meta">Distributed Systems • High Concurrency</div>
+  <p>
+Designed a Redis-backed distributed rate limiting service using the Token Bucket algorithm,
+ensuring consistent enforcement across horizontally scaled API instances.
+  </p>
+  <div class="stack">FastAPI • Redis • Lua • System Design</div>
+  <a href="https://github.com/harjeet-chahal/Distributed-Rate-Limiter">View Code →</a>
+</div>
+
+<div class="card">
+  <h3>VideoQuery (Multimodal RAG)</h3>
+  <div class="meta">Vision + Language</div>
+  <p>
+Built a multimodal RAG pipeline that extracts audio via Whisper and visual frames via CLIP to enable
+semantic video search with precise timestamped answers.
+  </p>
+  <div class="stack">CLIP • Whisper • Llama 3 • ChromaDB</div>
+</div>
+
+<div class="card">
+  <h3>PneumoXAI</h3>
+  <div class="meta">Trustworthy AI • Medical Imaging</div>
+  <p>
+Developed a pneumonia detection system using ResNet50 with integrated XAI
+(Grad-CAM, LIME, SHAP) to ensure clinical interpretability and zero false negatives.
+  </p>
+  <div class="stack">PyTorch • OpenCV • Explainable AI</div>
+</div>
+
+</div>
+</section>
+
+<section>
+<h2>Achievements</h2>
+<p>
+Solved <strong>1400+</strong> LeetCode problems with a <strong>1100+ day</strong> active streak.
+</p>
+<p>
+JEE Main 2020 AIR 1513 (Top 0.15%), JEE Advanced AIR 5677.
+</p>
+</section>
+
+<footer>
+© 2025 Harjeet Singh Chahal
+</footer>
+
+</div>
 </body>
 </html>
