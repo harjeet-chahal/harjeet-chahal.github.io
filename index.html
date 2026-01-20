@@ -85,6 +85,7 @@ h1 {
   justify-content: center;
   gap: 1.8rem;
   margin-top: 1.4rem;
+  flex-wrap: wrap;
 }
 
 a {
@@ -134,13 +135,7 @@ h2 {
   color: var(--muted);
 }
 
-/* ---------- PROJECT CARDS ---------- */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-  gap: 1.8rem;
-}
-
+/* ---------- PROJECT CARDS (REUSED) ---------- */
 .card {
   background: linear-gradient(180deg, #121826, #0b1020);
   border: 1px solid var(--border);
@@ -148,6 +143,8 @@ h2 {
   padding: 1.8rem;
   position: relative;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+  min-height: 230px;
 }
 
 .card::before {
@@ -161,6 +158,7 @@ h2 {
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   opacity: 0.35;
+  pointer-events: none;
 }
 
 .card:hover {
@@ -171,19 +169,114 @@ h2 {
 .card h3 {
   color: #fff;
   margin-top: 0;
+  margin-bottom: 0.4rem;
 }
 
 .meta {
   font-size: 0.85rem;
   color: var(--cyan);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.6rem;
 }
 
 .stack {
   margin-top: 1rem;
   font-size: 0.85rem;
-  font-family: monospace;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   color: var(--green);
+}
+
+/* ---------- CAROUSEL ---------- */
+.carousel {
+  position: relative;
+  margin-top: 0.5rem;
+}
+
+.carousel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.carousel-hint {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.carousel-viewport {
+  overflow: hidden;
+  border-radius: 16px;
+  /* helps touch feel smoother */
+  touch-action: pan-y;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 1.8rem;
+  will-change: transform;
+  transition: transform 420ms ease;
+  padding: 0.2rem 0.2rem 0.8rem;
+}
+
+.slide {
+  flex: 0 0 calc((100% - (1.8rem * 2)) / 3); /* 3 visible on desktop */
+  display: flex;
+}
+
+@media (max-width: 900px) {
+  .slide { flex-basis: calc((100% - 1.8rem) / 2); } /* 2 visible */
+}
+
+@media (max-width: 600px) {
+  .slide { flex-basis: 100%; } /* 1 visible */
+}
+
+/* Controls */
+.controls {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+}
+
+.ctrl-btn {
+  appearance: none;
+  border: 1px solid var(--border);
+  background: rgba(18, 24, 38, 0.6);
+  color: var(--text);
+  padding: 0.55rem 0.75rem;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 700;
+  transition: transform 0.2s ease, background 0.2s ease, opacity 0.2s ease;
+  user-select: none;
+}
+
+.ctrl-btn:hover { transform: translateY(-1px); background: rgba(18, 24, 38, 0.85); }
+.ctrl-btn:active { transform: translateY(0px); }
+.ctrl-btn[disabled] { opacity: 0.45; cursor: not-allowed; }
+
+.dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 0.8rem;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(209,213,219,0.12);
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.dot.active {
+  background: linear-gradient(90deg, var(--blue), var(--purple));
+  border-color: rgba(167,139,250,0.6);
+  transform: scale(1.05);
 }
 
 /* ---------- FOOTER ---------- */
@@ -217,7 +310,7 @@ footer {
     <a href="https://leetcode.com/u/harjeetchahal/">LeetCode</a>
   </div>
 
-  <a class="btn" href="./Harjeet_Singh_Chahal_Resume_MSCS.pdf" target="_blank">
+  <a class="btn" href="./Harjeet_Singh_Chahal_Resume_MSCS.pdf" target="_blank" rel="noopener">
     Download Resume
   </a>
 </header>
@@ -258,40 +351,24 @@ analytics pipelines, and delivered insights directly to senior leadership.
 </section>
 
 <section>
-<h2>Featured Projects</h2>
+<h2>Projects</h2>
 
-<div class="grid">
+<div class="carousel" id="projectsCarousel">
+  <div class="carousel-header">
+    <div class="carousel-hint">3 projects visible on desktop • swipe/drag or use arrows</div>
+    <div class="controls">
+      <button class="ctrl-btn" type="button" id="prevBtn" aria-label="Previous projects">←</button>
+      <button class="ctrl-btn" type="button" id="nextBtn" aria-label="Next projects">→</button>
+    </div>
+  </div>
 
-<div class="card">
-  <h3>Distributed Rate Limiter</h3>
-  <div class="meta">High-Concurrency Systems</div>
-  <p>
-    Designed a Redis-backed distributed rate limiter using Token Bucket
-    semantics to enforce consistent limits across scaled API instances.
-  </p>
-  <div class="stack">FastAPI • Redis • Lua • System Design</div>
-</div>
+  <div class="carousel-viewport" id="viewport" aria-label="Project carousel">
+    <div class="carousel-track" id="track">
+      <!-- Slides injected by JS -->
+    </div>
+  </div>
 
-<div class="card">
-  <h3>VideoQuery (Multimodal RAG)</h3>
-  <div class="meta">Vision + Language</div>
-  <p>
-    Built a multimodal RAG system combining Whisper audio, CLIP visual embeddings,
-    and LLMs for timestamped video question answering.
-  </p>
-  <div class="stack">CLIP • Whisper • Llama • ChromaDB</div>
-</div>
-
-<div class="card">
-  <h3>PneumoXAI</h3>
-  <div class="meta">Trustworthy Medical AI</div>
-  <p>
-    Developed an interpretable pneumonia detection system using ResNet50 with
-    Grad-CAM, LIME, and SHAP for clinical transparency.
-  </p>
-  <div class="stack">PyTorch • OpenCV • XAI</div>
-</div>
-
+  <div class="dots" id="dots" aria-label="Carousel pagination"></div>
 </div>
 </section>
 
@@ -306,5 +383,265 @@ analytics pipelines, and delivered insights directly to senior leadership.
 </footer>
 
 </div>
+
+<script>
+/**
+ * Projects list
+ * - Add/edit projects here
+ * - Optional: add "link" if you want the title clickable
+ */
+const PROJECTS = [
+  {
+    title: "Distributed Rate Limiter",
+    meta: "High-Concurrency Systems",
+    desc: "Designed a Redis-backed distributed rate limiter using Token Bucket semantics to enforce consistent limits across scaled API instances.",
+    stack: "FastAPI • Redis • Lua • System Design",
+    link: "https://github.com/harjeet-chahal/Distributed-Rate-Limiter"
+  },
+  {
+    title: "VideoQuery (Multimodal RAG)",
+    meta: "Vision + Language",
+    desc: "Built a multimodal RAG system combining Whisper audio, CLIP visual embeddings, and LLMs for timestamped video question answering.",
+    stack: "CLIP • Whisper • Llama • ChromaDB"
+  },
+  {
+    title: "PneumoXAI",
+    meta: "Trustworthy Medical AI",
+    desc: "Developed an interpretable pneumonia detection system using ResNet50 with Grad-CAM, LIME, and SHAP for clinical transparency.",
+    stack: "PyTorch • OpenCV • XAI"
+  },
+  {
+    title: "TaskFlow",
+    meta: "Java + Microservices",
+    desc: "Built a Spring Boot microservices project with clean APIs, service boundaries, and production-style structure.",
+    stack: "Java • Spring Boot • REST • Microservices"
+  },
+  {
+    title: "BuyMe Auction System",
+    meta: "Backend + Database Systems",
+    desc: "Implemented an auction-style web system emphasizing relational design, query-heavy features, and backend workflows.",
+    stack: "SQL • Backend • Web App"
+  },
+  {
+    title: "RUOnCampus — Campus Concierge",
+    meta: "Agentic AI + Voice",
+    desc: "Prototyped a multi-agent campus assistant experience with tool-use style workflows and conversational UX.",
+    stack: "LLMs • Tools/Agents • Full-Stack"
+  },
+  {
+    title: "InsightHub — Market Research Agent",
+    meta: "LLM Automation",
+    desc: "Built an agent that structures research tasks into steps and produces summarized, usable outputs.",
+    stack: "LLMs • RAG • Automation"
+  },
+  {
+    title: "CampusConnect",
+    meta: "Offline-First Full-Stack",
+    desc: "Designed an offline-first event/community concept with sync-friendly data thinking and a clean UI flow.",
+    stack: "Full-Stack • Sync • Mobile/Web"
+  },
+  {
+    title: "PickupPal",
+    meta: "Sports Scheduling",
+    desc: "Created a sports scheduling concept focused on quick coordination, availability, and simple matching.",
+    stack: "App • Scheduling • Full-Stack"
+  },
+  {
+    title: "CommentAnalysis",
+    meta: "NLP",
+    desc: "Explored classification approaches across classic + deep learning pipelines for robust text understanding.",
+    stack: "NLP • BERT/RoBERTa • FastAPI"
+  }
+];
+
+const track = document.getElementById("track");
+const viewport = document.getElementById("viewport");
+const prevBtn = document.getElementById("prevBtn");
+const nextBtn = document.getElementById("nextBtn");
+const dotsWrap = document.getElementById("dots");
+
+let index = 0;        // current page index (not item index)
+let perView = 3;      // computed based on viewport width
+let pageCount = 1;    // computed
+let slideWidth = 0;   // computed px distance per page (includes gaps)
+
+/* --------- Build Slides --------- */
+function escapeHtml(str) {
+  return String(str).replace(/[&<>"']/g, s => ({
+    "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+  }[s]));
+}
+
+function buildSlides() {
+  track.innerHTML = "";
+  PROJECTS.forEach(p => {
+    const title = escapeHtml(p.title);
+    const meta = escapeHtml(p.meta || "");
+    const desc = escapeHtml(p.desc || "");
+    const stack = escapeHtml(p.stack || "");
+    const link = p.link ? String(p.link) : "";
+
+    const titleHtml = link
+      ? `<a href="${link}" target="_blank" rel="noopener" style="color:#fff;text-decoration:none;">${title}</a>`
+      : `${title}`;
+
+    const slide = document.createElement("div");
+    slide.className = "slide";
+    slide.innerHTML = `
+      <div class="card">
+        <h3>${titleHtml}</h3>
+        <div class="meta">${meta}</div>
+        <p>${desc}</p>
+        <div class="stack">${stack}</div>
+      </div>
+    `;
+    track.appendChild(slide);
+  });
+}
+
+/* --------- Layout + Paging --------- */
+function getPerView() {
+  const w = viewport.clientWidth;
+  if (w <= 600) return 1;
+  if (w <= 900) return 2;
+  return 3;
+}
+
+function computePaging() {
+  perView = getPerView();
+  pageCount = Math.max(1, Math.ceil(PROJECTS.length / perView));
+
+  // clamp index if resize changes pageCount
+  index = Math.min(index, pageCount - 1);
+
+  // compute step size: width of viewport per page + gap compensation
+  // We'll calculate based on first slide's offsetWidth plus gap
+  const firstSlide = track.querySelector(".slide");
+  if (!firstSlide) return;
+
+  const slideW = firstSlide.getBoundingClientRect().width;
+  const styles = getComputedStyle(track);
+  const gap = parseFloat(styles.gap || "0");
+
+  // One "page" = perView slides + gaps between them
+  slideWidth = (slideW * perView) + (gap * (perView - 1));
+}
+
+function renderDots() {
+  dotsWrap.innerHTML = "";
+  for (let i = 0; i < pageCount; i++) {
+    const dot = document.createElement("button");
+    dot.className = "dot" + (i === index ? " active" : "");
+    dot.type = "button";
+    dot.setAttribute("aria-label", `Go to page ${i + 1}`);
+    dot.addEventListener("click", () => goTo(i));
+    dotsWrap.appendChild(dot);
+  }
+}
+
+function updateButtons() {
+  prevBtn.disabled = index <= 0;
+  nextBtn.disabled = index >= pageCount - 1;
+}
+
+function applyTransform() {
+  const styles = getComputedStyle(track);
+  const gap = parseFloat(styles.gap || "0");
+
+  // Translate by full pages. Each page shift = viewport width + gap offset handling,
+  // but we computed slideWidth precisely.
+  const x = (slideWidth + gap) * index; // +gap makes the snap feel exact with padding
+  track.style.transform = `translateX(${-x}px)`;
+}
+
+function goTo(i) {
+  index = Math.max(0, Math.min(pageCount - 1, i));
+  renderDots();
+  updateButtons();
+  applyTransform();
+}
+
+function next() { goTo(index + 1); }
+function prev() { goTo(index - 1); }
+
+/* --------- Drag / Swipe --------- */
+let isDown = false;
+let startX = 0;
+let startTranslate = 0;
+
+function getTranslateX(el) {
+  const st = getComputedStyle(el).transform;
+  if (st === "none") return 0;
+  const match = st.match(/matrix\((.+)\)/);
+  if (!match) return 0;
+  const values = match[1].split(",").map(v => parseFloat(v.trim()));
+  return values.length >= 6 ? values[4] : 0;
+}
+
+function pointerDown(e) {
+  isDown = true;
+  track.style.transition = "none";
+  startX = e.clientX;
+  startTranslate = getTranslateX(track);
+  viewport.setPointerCapture(e.pointerId);
+}
+
+function pointerMove(e) {
+  if (!isDown) return;
+  const dx = e.clientX - startX;
+  track.style.transform = `translateX(${startTranslate + dx}px)`;
+}
+
+function pointerUp(e) {
+  if (!isDown) return;
+  isDown = false;
+  viewport.releasePointerCapture(e.pointerId);
+
+  // snap to nearest page
+  track.style.transition = "transform 420ms ease";
+
+  const currentX = getTranslateX(track); // negative typically
+  const moved = currentX - (-( (slideWidth + parseFloat(getComputedStyle(track).gap || "0")) * index ));
+
+  // Threshold: if dragged enough, change page
+  const threshold = Math.min(140, viewport.clientWidth * 0.18);
+  if (moved > threshold) prev();
+  else if (moved < -threshold) next();
+  else goTo(index);
+}
+
+/* --------- Init --------- */
+buildSlides();
+computePaging();
+renderDots();
+updateButtons();
+applyTransform();
+
+prevBtn.addEventListener("click", prev);
+nextBtn.addEventListener("click", next);
+
+viewport.addEventListener("pointerdown", pointerDown);
+viewport.addEventListener("pointermove", pointerMove);
+viewport.addEventListener("pointerup", pointerUp);
+viewport.addEventListener("pointercancel", pointerUp);
+
+// Keyboard support when focused
+document.addEventListener("keydown", (e) => {
+  if (e.key === "ArrowLeft") prev();
+  if (e.key === "ArrowRight") next();
+});
+
+// Recompute on resize (debounced)
+let resizeT = null;
+window.addEventListener("resize", () => {
+  clearTimeout(resizeT);
+  resizeT = setTimeout(() => {
+    computePaging();
+    renderDots();
+    updateButtons();
+    applyTransform();
+  }, 120);
+});
+</script>
 </body>
 </html>
