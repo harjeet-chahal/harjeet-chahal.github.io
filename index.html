@@ -60,6 +60,27 @@ header {
   border-bottom: 1px solid var(--border);
 }
 
+/* PROFILE IMAGE */
+.profile-pic {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1.6rem;
+  border: 3px solid transparent;
+  background:
+    linear-gradient(#000, #000) padding-box,
+    linear-gradient(135deg, var(--blue), var(--purple), var(--pink)) border-box;
+  box-shadow:
+    0 0 0 6px rgba(167,139,250,0.25),
+    0 25px 50px rgba(0,0,0,0.65);
+  transition: transform 0.35s ease;
+}
+
+.profile-pic:hover {
+  transform: scale(1.06);
+}
+
 h1 {
   font-size: 3rem;
   margin-bottom: 0.4rem;
@@ -204,6 +225,9 @@ footer {
 <div class="glow pink"></div>
 
 <header>
+  <!-- PROFILE IMAGE -->
+  <img src="./profile.jpg" alt="Harjeet Singh Chahal" class="profile-pic" />
+
   <h1>Harjeet Singh Chahal</h1>
   <div class="role">MS in Computer Science @ Rutgers University</div>
   <div class="sub-role">
