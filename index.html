@@ -3,464 +3,396 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Harjeet Singh Chahal | Portfolio</title>
+<title>Harjeet Singh Chahal | Software Engineer · ML, AI &amp; Systems</title>
+<meta name="description" content="Portfolio of Harjeet Singh Chahal: M.S. Computer Science at Rutgers (4.00 GPA). Machine learning, AI, and systems engineering, from distributed training to production inference." />
+<link rel="canonical" href="https://harjeet-chahal.github.io/" />
+<meta name="theme-color" content="#F7F5F0" />
 
-<style>
-:root {
-  --bg: #0b0f1a;
-  --card: #121826;
-  --border: #1f2937;
-  --text: #d1d5db;
-  --muted: #9ca3af;
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Harjeet Singh Chahal | Software Engineer · ML, AI & Systems" />
+<meta property="og:description" content="M.S. CS @ Rutgers (4.00). Distributed training pipelines, production ML inference, and agentic AI systems." />
+<meta property="og:url" content="https://harjeet-chahal.github.io/" />
 
-  --blue: #60a5fa;
-  --purple: #a78bfa;
-  --pink: #f472b6;
-  --green: #34d399;
-  --cyan: #22d3ee;
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cellipse cx='50' cy='42' rx='22' ry='34' fill='%23EFC3CE' transform='rotate(18 50 50)'/%3E%3Cellipse cx='50' cy='58' rx='18' ry='28' fill='%23F6DCE2' transform='rotate(-24 50 50)' opacity='.85'/%3E%3C/svg%3E" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Harjeet Singh Chahal",
+  "url": "https://harjeet-chahal.github.io/",
+  "email": "mailto:hc1242@scarletmail.rutgers.edu",
+  "jobTitle": "Software Engineer (Machine Learning, AI & Systems)",
+  "alumniOf": [
+    { "@type": "CollegeOrUniversity", "name": "Rutgers University - New Brunswick" },
+    { "@type": "CollegeOrUniversity", "name": "Netaji Subhas University of Technology" }
+  ],
+  "sameAs": [
+    "https://github.com/harjeet-chahal",
+    "https://linkedin.com/in/harjeet-singh-chahal",
+    "https://leetcode.com/u/harjeetchahal"
+  ]
 }
-
-/* ---------- BASE ---------- */
-* { box-sizing: border-box; }
-
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-  background: radial-gradient(circle at top left, #111827, #020617);
-  color: var(--text);
-  line-height: 1.7;
-  overflow-x: hidden;
-}
-
-.container {
-  max-width: 950px;
-  margin: 0 auto;
-  padding: 3.5rem 1.5rem;
-  position: relative;
-}
-
-/* ---------- GLOW BLOBS ---------- */
-.glow {
-  position: absolute;
-  width: 420px;
-  height: 420px;
-  filter: blur(120px);
-  opacity: 0.35;
-  z-index: -1;
-}
-
-.glow.blue { background: var(--blue); top: -100px; left: -100px; }
-.glow.purple { background: var(--purple); top: 300px; right: -150px; }
-.glow.pink { background: var(--pink); bottom: -150px; left: 200px; }
-
-/* ---------- HEADER ---------- */
-header {
-  text-align: center;
-  padding-bottom: 3.5rem;
-  border-bottom: 1px solid var(--border);
-}
-
-h1 {
-  font-size: 3rem;
-  margin-bottom: 0.4rem;
-  background: linear-gradient(90deg, var(--blue), var(--purple), var(--pink));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.role {
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: var(--cyan);
-}
-
-.sub-role {
-  font-size: 0.95rem;
-  color: var(--muted);
-  margin-top: 0.4rem;
-}
-
-.socials {
-  display: flex;
-  justify-content: center;
-  gap: 1.8rem;
-  margin-top: 1.4rem;
-  flex-wrap: wrap;
-}
-
-a {
-  color: var(--blue);
-  text-decoration: none;
-}
-
-a:hover { text-decoration: underline; }
-
-.btn {
-  display: inline-block;
-  margin-top: 2rem;
-  padding: 0.7rem 1.6rem;
-  background: linear-gradient(90deg, var(--blue), var(--purple));
-  color: #020617;
-  border-radius: 8px;
-  font-weight: 800;
-  box-shadow: 0 10px 30px rgba(96,165,250,0.35);
-}
-
-/* ---------- SECTIONS ---------- */
-section {
-  padding: 3.5rem 0;
-  border-bottom: 1px solid var(--border);
-}
-
-h2 {
-  font-size: 1.9rem;
-  margin-bottom: 1.2rem;
-  background: linear-gradient(90deg, var(--cyan), var(--green));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* ---------- EXPERIENCE ---------- */
-.exp {
-  margin-bottom: 2.2rem;
-}
-
-.exp h3 {
-  margin-bottom: 0.2rem;
-  color: #fff;
-}
-
-.exp span {
-  font-size: 0.9rem;
-  color: var(--muted);
-}
-
-/* ---------- PROJECT CARDS ---------- */
-.card {
-  background: linear-gradient(180deg, #121826, #0b1020);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 1.8rem;
-  position: relative;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  height: 100%;
-  min-height: 230px;
-}
-
-.card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 14px;
-  padding: 1px;
-  background: linear-gradient(135deg, var(--blue), var(--purple), var(--pink));
-  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  opacity: 0.35;
-  pointer-events: none;
-}
-
-.card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 25px 60px rgba(167,139,250,0.25);
-}
-
-.card h3 {
-  color: #fff;
-  margin-top: 0;
-  margin-bottom: 0.4rem;
-}
-
-.card h3 a {
-  color: #fff;
-  text-decoration: none;
-}
-
-.card h3 a:hover {
-  text-decoration: underline;
-}
-
-.meta {
-  font-size: 0.85rem;
-  color: var(--cyan);
-  margin-bottom: 0.6rem;
-}
-
-.stack {
-  margin-top: 1rem;
-  font-size: 0.85rem;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-  color: var(--green);
-}
-
-/* ---------- CAROUSEL (SCROLL) ---------- */
-.carousel-hint {
-  font-size: 0.9rem;
-  color: var(--muted);
-  margin-bottom: 1rem;
-}
-
-.carousel-viewport {
-  overflow-x: auto;
-  overflow-y: hidden;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-  border-radius: 16px;
-  padding-bottom: 0.6rem;
-}
-
-.carousel-viewport:focus { outline: none; }
-
-/* Hide scrollbar (still scrollable) */
-.carousel-viewport::-webkit-scrollbar { height: 0px; }
-.carousel-viewport { scrollbar-width: none; }
-
-.carousel-track {
-  display: flex;
-  gap: 1.8rem;
-  padding: 0.2rem 0.2rem 0.8rem;
-}
-
-.slide {
-  flex: 0 0 calc((100% - (1.8rem * 2)) / 3); /* 3 visible on desktop */
-  scroll-snap-align: start;
-  display: flex;
-}
-
-@media (max-width: 900px) {
-  .slide { flex-basis: calc((100% - 1.8rem) / 2); } /* 2 visible */
-}
-
-@media (max-width: 600px) {
-  .slide { flex-basis: 100%; } /* 1 visible */
-}
-
-/* ---------- FOOTER ---------- */
-footer {
-  text-align: center;
-  padding-top: 2.5rem;
-  color: var(--muted);
-  font-size: 0.9rem;
-}
-</style>
+</script>
 </head>
 
 <body>
-<div class="container">
 
-<div class="glow blue"></div>
-<div class="glow purple"></div>
-<div class="glow pink"></div>
+<!-- Ambient background: morning light cross-fading to afternoon sun as you scroll -->
+<div class="sky" aria-hidden="true">
+  <div class="sky-layer sky-morning"></div>
+  <div class="sky-layer sky-afternoon" id="skyAfternoon"></div>
+  <div class="sky-glow sky-glow-sage"></div>
+  <div class="sky-glow sky-glow-blossom"></div>
+</div>
 
-<header>
-  <h1>Harjeet Singh Chahal</h1>
-  <div class="role">MS in Computer Science @ Rutgers University</div>
-  <div class="sub-role">
-    AI / ML • Distributed Systems • Full-Stack • 1400+ LeetCode
+<!-- Falling petals drift behind the frosted-glass cards -->
+<canvas id="petals" aria-hidden="true"></canvas>
+
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a class="nav-mark" href="#top">Harjeet <span>Singh Chahal</span></a>
+    <nav class="nav-links" aria-label="Sections">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="nav-resume" href="resume/Harjeet_Singh_Chahal_Resume_SWE.pdf" target="_blank" rel="noopener">Résumé</a>
   </div>
-
-  <div class="socials">
-    <a href="https://github.com/harjeet-chahal">GitHub</a>
-    <a href="https://linkedin.com/in/harjeet-singh-chahal/">LinkedIn</a>
-    <a href="mailto:hc1242@scarletmail.rutgers.edu">Email</a>
-    <a href="https://leetcode.com/u/harjeetchahal/">LeetCode</a>
-  </div>
-
-  <a class="btn" href="./Harjeet_Singh_Chahal_Resume_MSCS.pdf" target="_blank" rel="noopener">
-    Download Resume
-  </a>
 </header>
 
-<section>
-<h2>About Me</h2>
-<p>
-MSCS student at Rutgers University (GPA 4.0), focused on building scalable,
-trustworthy AI systems spanning machine learning, distributed systems, and
-full-stack engineering.
-</p>
-<p>
-Previously at Dhruv Research, I worked with 200K+ survey records, automated
-analytics pipelines, and delivered insights directly to senior leadership.
-</p>
-</section>
+<main id="top">
 
-<section>
-<h2>Experience</h2>
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <svg class="hero-branch" viewBox="0 0 420 320" fill="none" aria-hidden="true">
+      <g class="branch-wood" stroke="#A89784" stroke-width="1.4" stroke-linecap="round">
+        <path d="M418 6 C 356 44, 300 74, 238 132 C 200 168, 172 206, 158 252" />
+        <path d="M330 62 C 306 96, 296 128, 296 162" />
+        <path d="M262 112 C 232 128, 210 134, 182 136" />
+        <path d="M238 132 C 246 170, 262 192, 288 208" />
+        <path d="M170 218 C 142 224, 122 238, 108 258" />
+      </g>
+      <g class="branch-bloom">
+        <g transform="translate(296,166)"><use href="#blossom" /></g>
+        <g transform="translate(180,138) scale(.82)"><use href="#blossom" /></g>
+        <g transform="translate(290,212) scale(.72)"><use href="#blossom" /></g>
+        <g transform="translate(156,256) scale(.9)"><use href="#blossom" /></g>
+        <g transform="translate(104,262) scale(.62)"><use href="#blossom" /></g>
+        <g transform="translate(345,52)  scale(.7)"><use href="#blossom" /></g>
+      </g>
+      <defs>
+        <g id="blossom">
+          <ellipse rx="7" ry="11" cy="-9"  fill="#F0CAD4" transform="rotate(0)" />
+          <ellipse rx="7" ry="11" cy="-9"  fill="#F4D6DD" transform="rotate(72)"  transform-origin="0 0" />
+          <ellipse rx="7" ry="11" cy="-9"  fill="#EFC3CE" transform="rotate(144)" transform-origin="0 0" />
+          <ellipse rx="7" ry="11" cy="-9"  fill="#F4D6DD" transform="rotate(216)" transform-origin="0 0" />
+          <ellipse rx="7" ry="11" cy="-9"  fill="#F0CAD4" transform="rotate(288)" transform-origin="0 0" />
+          <circle r="3" fill="#D69AA9" />
+        </g>
+      </defs>
+    </svg>
 
-<div class="exp">
-  <h3>Dhruv Research — Associate Business Analyst</h3>
-  <span>Jan 2025 – May 2025</span>
-  <p>
-    Processed national election datasets using Python and SQL, automated pipelines
-    reducing turnaround time by 30%, and supported client-facing forecasting.
-  </p>
-</div>
+    <img class="hero-photo" src="images/profile.jpg" alt="Harjeet Singh Chahal" width="720" height="900" loading="lazy" />
 
-<div class="exp">
-  <h3>Dhruv Research — Analytics Intern</h3>
-  <span>Sep 2024 – Dec 2024</span>
-  <p>
-    Analyzed 200K+ responses, validated demographic sampling, and built automated
-    dashboards for vote-share estimation.
-  </p>
-</div>
-</section>
+    <div class="hero-inner">
+      <p class="kicker">Software Engineer &middot; Machine Learning &middot; AI &middot; Systems</p>
+      <h1>Harjeet Singh<br />Chahal</h1>
+      <p class="hero-line">
+        I like solving hard problems, building useful products and learning along the way.
+      </p>
+      <p class="hero-meta">
+        M.S. Computer Science @ Rutgers <em>(4.00 GPA)</em> &middot; Research Assistant, Rutgers School of Health Professions
+      </p>
 
-<section>
-<h2>Projects</h2>
-<div class="carousel-hint">Scroll horizontally with your cursor/trackpad (3 visible on desktop)</div>
+      <div class="hero-actions">
+        <a class="btn-primary" href="resume/Harjeet_Singh_Chahal_Resume_SWE.pdf" target="_blank" rel="noopener">View résumé</a>
+        <div class="hero-links">
+          <a href="https://github.com/harjeet-chahal" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://linkedin.com/in/harjeet-singh-chahal" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://leetcode.com/u/harjeetchahal" target="_blank" rel="noopener">LeetCode</a>
+          <span class="email-text">hc1242@scarletmail.rutgers.edu</span>
+        </div>
+      </div>
+    </div>
 
-<div class="carousel-viewport" id="projectsViewport" aria-label="Projects carousel" tabindex="0">
-  <div class="carousel-track" id="projectsTrack">
-    <!-- Slides injected by JS -->
-  </div>
-</div>
-</section>
+    <div class="hero-stats reveal">
+      <div class="stat"><strong>4.00</strong><span>GPA &middot; M.S. CS, Rutgers</span></div>
+      <div class="stat"><strong>1,550+</strong><span>LeetCode problems solved</span></div>
+      <div class="stat"><strong>1,300+</strong><span>day solving streak</span></div>
+      <div class="stat"><strong>Top 0.15%</strong><span>JEE Main &middot; ~1M candidates</span></div>
+    </div>
+  </section>
 
-<section>
-<h2>Achievements</h2>
-<p>1400+ LeetCode problems solved with a 1100+ day active streak.</p>
-<p>JEE Main AIR 1513 (Top 0.15%), JEE Advanced AIR 5677.</p>
-</section>
+  <!-- ================= ABOUT ================= -->
+  <section class="section" id="about">
+    <div class="section-head reveal">
+      <p class="kicker">01 &middot; About</p>
+      <h2>A quiet obsession with systems that hold up.</h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p>
+          I'm a master's student in Computer Science at Rutgers University, with a B.Tech in
+          Computer Science &amp; AI from NSUT, New Delhi. My work sits where machine learning meets
+          systems engineering: training pipelines that survive failure, inference APIs measured in
+          milliseconds, and AI products that hold up in front of real users.
+        </p>
+        <p>
+          Right now I'm productionizing HIPAA-compliant ML at the Rutgers School of Health
+          Professions, after a summer building a local-first, on-premise LLM compliance platform at
+          Technical Consulting &amp; Research Inc. Before graduate school, I engineered ETL and
+          forecasting pipelines over 200K+ survey responses at Dhruv Research.
+        </p>
+        <p class="about-ethos">
+          I care about evidence: checkpoints that resume exactly, citations that trace to
+          sources, and tests that catch drift before users ever see it.
+        </p>
+      </div>
+      <aside class="about-card glass reveal">
+        <h3>Currently</h3>
+        <dl>
+          <div><dt>Now</dt><dd>Research Assistant &middot; Rutgers School of Health Professions</dd></div>
+          <div><dt>Summer '26</dt><dd>SWE Intern &middot; Technical Consulting &amp; Research Inc.</dd></div>
+          <div><dt>Studying</dt><dd>M.S. Computer Science &middot; Rutgers, Class of 2027</dd></div>
+          <div><dt>Based in</dt><dd>New Brunswick, New Jersey</dd></div>
+          <div><dt>Open to</dt><dd>Software &middot; ML &middot; AI engineering roles</dd></div>
+        </dl>
+      </aside>
+    </div>
+  </section>
 
-<footer>
-© 2025 Harjeet Singh Chahal
+  <!-- ================= EXPERIENCE ================= -->
+  <section class="section" id="experience">
+    <div class="section-head reveal">
+      <p class="kicker">02 &middot; Experience</p>
+      <h2>Where I've been planted.</h2>
+    </div>
+
+    <div class="timeline">
+      <article class="entry reveal">
+        <div class="entry-when">Apr 2026 - Present</div>
+        <div class="entry-body">
+          <h3>Research Assistant <span>&middot; Mobile + ML Engineering</span></h3>
+          <p class="entry-org">Rutgers School of Health Professions &middot; Piscataway, NJ</p>
+          <ul>
+            <li>Productionized a HIPAA-compliant PyTorch EfficientNet-B0 behind FastAPI, cutting CPU inference to 25-40&nbsp;ms, and deployed it on GCP Cloud Run with full CI/CD.</li>
+            <li>Built an Expo/React Native iOS + Android app with JWT auth, deep linking, weather/UV APIs, and a context-aware educational chatbot, shipping 10+ TestFlight releases to 100+ participants.</li>
+            <li>Wrote a 50-test suite for inference, auth, and cross-platform parity; resolved ARM/x86 floating-point drift.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="entry reveal">
+        <div class="entry-when">Jun 2026 - Aug 2026</div>
+        <div class="entry-body">
+          <h3>Software Development Intern <span>&middot; Backend + AI Engineering</span></h3>
+          <p class="entry-org">Technical Consulting &amp; Research Inc. &middot; Weston, CT</p>
+          <ul>
+            <li>Architected a local-first compliance platform (FastAPI, React, PostgreSQL/pgvector) running LLM inference and embeddings on-premise via Ollama, so client evidence never leaves the building.</li>
+            <li>Built a citation pipeline restricted to retrieved chunk IDs with server-side source resolution, reducing unsupported claims.</li>
+            <li>Developed an MCP server exposing 20 read-only compliance tools for agentic retrieval and control analysis.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="entry reveal">
+        <div class="entry-when">Sep 2024 - May 2025</div>
+        <div class="entry-body">
+          <h3>Associate <span>&middot; Analytics + Data Engineering</span></h3>
+          <p class="entry-org">Dhruv Research &middot; Gurugram, India</p>
+          <ul>
+            <li>Engineered Python/SQL ETL pipelines cleaning and normalizing 200K+ survey responses across 10 state projects, cutting turnaround time by 30%.</li>
+            <li>Predicted vote share across 500+ constituencies using statistical weighting with MAE/RMSE validation, coordinating within an 8-member team.</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ================= PROJECTS ================= -->
+  <section class="section" id="projects">
+    <div class="section-head reveal">
+      <p class="kicker">03 &middot; Projects</p>
+      <h2>Things I've grown.</h2>
+      <p class="section-sub">Every number below is measured, not estimated.</p>
+    </div>
+
+    <div class="filters reveal" role="group" aria-label="Filter projects">
+      <button class="chip is-active" data-filter="all" aria-pressed="true">All</button>
+      <button class="chip" data-filter="ml" aria-pressed="false">Machine Learning</button>
+      <button class="chip" data-filter="ai" aria-pressed="false">AI &amp; Agents</button>
+      <button class="chip" data-filter="systems" aria-pressed="false">Systems</button>
+    </div>
+
+    <div class="projects-grid">
+      <article class="card glass reveal" data-tags="ml systems">
+        <div class="card-top">
+          <h3><a href="https://github.com/harjeet-chahal/ScaleTrain" target="_blank" rel="noopener">ScaleTrain <span class="ext" aria-hidden="true">&#8599;</span></a></h3>
+          <p class="card-tagline">Fault-tolerant distributed training on SLURM</p>
+        </div>
+        <p>Scaled a 30M-parameter transformer across 4&times;A100s at 500K tokens/s with PyTorch DDP. Signal-driven checkpointing and deterministic sharding resume from the exact interrupted step: zero lost work, verified by 64 tests.</p>
+        <p class="card-stack">PyTorch &middot; DDP &middot; SLURM &middot; NVIDIA A100</p>
+      </article>
+
+      <article class="card glass reveal" data-tags="ai">
+        <div class="card-top">
+          <h3><a href="https://github.com/harjeet-chahal/VideoQuery" target="_blank" rel="noopener">VideoQuery <span class="ext" aria-hidden="true">&#8599;</span></a></h3>
+          <p class="card-tagline">Semantic video search with grounded answers</p>
+        </div>
+        <p>Multimodal search and Q&amp;A over video with timestamped citations. Fused BM25, dense, CLIP, and caption retrieval with RRF + reranking: 88.5% R@1 and 3.9&nbsp;s temporal error. Crash-safe ingestion at 10&times; real time on AWS.</p>
+        <p class="card-stack">Whisper &middot; CLIP &middot; pgvector &middot; AWS</p>
+      </article>
+
+      <article class="card glass reveal" data-tags="ai">
+        <div class="card-top">
+          <h3><a href="https://github.com/harjeet-chahal/AgentXAI" target="_blank" rel="noopener">AgentXAI <span class="ext" aria-hidden="true">&#8599;</span></a></h3>
+          <p class="card-tagline">Traceable explainability for multi-agent AI</p>
+        </div>
+        <p>Tackles unfaithful explanations in agentic systems: a 5-agent architecture with typed traces, causal DAGs, evidence constraints, and counterfactual ablations, reaching 93% explanation sufficiency and 0.71 stability.</p>
+        <p class="card-stack">LangChain &middot; FAISS &middot; FastAPI &middot; Streamlit</p>
+      </article>
+
+      <article class="card glass reveal" data-tags="systems">
+        <div class="card-top">
+          <h3><a href="https://github.com/harjeet-chahal/FlexStore" target="_blank" rel="noopener">FlexStore <span class="ext" aria-hidden="true">&#8599;</span></a></h3>
+          <p class="card-tagline">An S3-inspired distributed object store</p>
+        </div>
+        <p>Go object store with 3&times; replication across 5 nodes: 528&nbsp;MiB/s writes, 2.6&nbsp;GiB/s reads. Heartbeat failure detection re-replicates lost chunks in 8-13&nbsp;s with 100% read availability and SHA-256-verified, byte-identical recovery.</p>
+        <p class="card-stack">Go &middot; gRPC &middot; PostgreSQL &middot; Docker</p>
+      </article>
+
+      <article class="card glass reveal" data-tags="ml">
+        <div class="card-top">
+          <h3>GraphRec</h3>
+          <p class="card-tagline">Personalized PageRank recommendation at scale</p>
+        </div>
+        <p>Recommender over a 31.8M-rating bipartite graph of 200,948 users, built on sparse matrices. Eliminated 25&nbsp;GB of per-query dense allocation and reached 0.280 Hit&nbsp;Rate@10 vs a 0.160 collaborative-filtering baseline, backed by 197 tests.</p>
+        <p class="card-stack">Python &middot; SciPy &middot; Streamlit &middot; Docker</p>
+      </article>
+
+      <article class="card glass reveal" data-tags="ml">
+        <div class="card-top">
+          <h3><a href="https://github.com/harjeet-chahal/LoRA-for-CNNs" target="_blank" rel="noopener">ConvLoRA <span class="ext" aria-hidden="true">&#8599;</span></a></h3>
+          <p class="card-tagline">Parameter-efficient transfer learning, from scratch</p>
+        </div>
+        <p>Convolutional LoRA implemented from scratch in PyTorch for ResNet-18 transfer. 59.34% CIFAR-100 accuracy with just 3.01% of full fine-tuning's parameters, cutting catastrophic forgetting from 5.06 to 1.98 points.</p>
+        <p class="card-stack">PyTorch &middot; ResNet-18 &middot; LoRA</p>
+      </article>
+
+      <article class="card glass reveal" data-tags="systems">
+        <div class="card-top">
+          <h3><a href="https://github.com/harjeet-chahal/SentryFlow" target="_blank" rel="noopener">SentryFlow <span class="ext" aria-hidden="true">&#8599;</span></a></h3>
+          <p class="card-tagline">Real-time rate limiting &amp; usage analytics</p>
+        </div>
+        <p>Kubernetes rate-limiting platform on AWS serving requests at &lt;100&nbsp;ms, with token-bucket and sliding-window controls, JWT auth, Kafka ingestion, and a React dashboard for live usage analytics. 92% test coverage.</p>
+        <p class="card-stack">Go &middot; Kubernetes &middot; Kafka &middot; React</p>
+      </article>
+
+      <article class="card glass reveal" data-tags="ml">
+        <div class="card-top">
+          <h3><a href="https://github.com/harjeet-chahal/customer-churn-prediction" target="_blank" rel="noopener">Churn MLOps <span class="ext" aria-hidden="true">&#8599;</span></a></h3>
+          <p class="card-tagline">An end-to-end production ML pipeline</p>
+        </div>
+        <p>MLflow-tracked churn prediction shipped as a containerized FastAPI service with CI/CD. Chose the simplest model that won (84.0% ROC-AUC) and fixed a silent train/serve skew, locking it down with 30 regression tests.</p>
+        <p class="card-stack">MLflow &middot; DVC &middot; Docker &middot; FastAPI</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ================= SKILLS ================= -->
+  <section class="section" id="skills">
+    <div class="section-head reveal">
+      <p class="kicker">04 &middot; Skills</p>
+      <h2>Tools kept sharp.</h2>
+    </div>
+    <div class="skills reveal">
+      <div class="skill-row">
+        <h3>Languages</h3>
+        <ul><li>Python</li><li>Java</li><li>C++</li><li>Go</li><li>SQL</li><li>JavaScript</li><li>R</li><li>HTML/CSS</li></ul>
+      </div>
+      <div class="skill-row">
+        <h3>ML &amp; AI</h3>
+        <ul><li>PyTorch</li><li>Scikit-Learn</li><li>Hugging Face</li><li>LangChain</li><li>RAG</li><li>OpenCV</li><li>NLTK</li><li>NumPy</li><li>Pandas</li></ul>
+      </div>
+      <div class="skill-row">
+        <h3>Backend &amp; Frontend</h3>
+        <ul><li>FastAPI</li><li>Flask</li><li>Node.js</li><li>REST</li><li>GraphQL</li><li>gRPC</li><li>MCP</li><li>React</li><li>React Native</li><li>Next.js</li><li>Expo</li></ul>
+      </div>
+      <div class="skill-row">
+        <h3>Cloud &amp; DevOps</h3>
+        <ul><li>AWS</li><li>GCP</li><li>Docker</li><li>Kubernetes</li><li>Linux</li><li>CI/CD</li><li>SLURM</li><li>Prometheus</li><li>Grafana</li></ul>
+      </div>
+      <div class="skill-row">
+        <h3>Data</h3>
+        <ul><li>PostgreSQL</li><li>pgvector</li><li>MySQL</li><li>MongoDB</li><li>Redis</li><li>FAISS</li><li>Pinecone</li><li>ChromaDB</li><li>Kafka</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= EDUCATION ================= -->
+  <section class="section" id="education">
+    <div class="section-head reveal">
+      <p class="kicker">05 &middot; Education &amp; Honors</p>
+      <h2>Roots.</h2>
+    </div>
+
+    <div class="edu-grid">
+      <article class="edu-card glass reveal">
+        <p class="edu-when">Aug 2025 - May 2027</p>
+        <h3>Rutgers University, New Brunswick</h3>
+        <p class="edu-degree">M.S. in Computer Science &middot; <strong>GPA 4.00 / 4.00</strong></p>
+        <p class="edu-detail">Machine Learning &middot; Massive Data Mining &middot; Interpretable &amp; Explainable AI &middot; Database Systems for Data Science &middot; Artificial Intelligence &middot; Visual Computing</p>
+      </article>
+      <article class="edu-card glass reveal">
+        <p class="edu-when">Nov 2020 - Jun 2024</p>
+        <h3>Netaji Subhas University of Technology, New Delhi</h3>
+        <p class="edu-degree">B.Tech. in CS &amp; Engineering (Artificial Intelligence) &middot; <strong>GPA 3.74 / 4.00</strong></p>
+        <p class="edu-detail">Deep Learning &middot; NLP &middot; High Performance Computing &middot; Distributed Computing &middot; Operating Systems &middot; Game Theory</p>
+      </article>
+    </div>
+
+    <ul class="honors reveal">
+      <li><strong>1,550+ LeetCode problems</strong> solved on a 1,300+ day active streak &middot; <a href="https://leetcode.com/u/harjeetchahal" target="_blank" rel="noopener">leetcode.com/u/harjeetchahal</a></li>
+      <li><strong>Top 0.15% nationally</strong> among ~1M candidates in JEE Main 2020</li>
+      <li><strong>GRE Quant 166/170</strong></li>
+    </ul>
+  </section>
+
+  <!-- ================= CONTACT ================= -->
+  <section class="section contact" id="contact">
+    <div class="section-head center reveal">
+      <p class="kicker">06 &middot; Contact</p>
+      <h2>The garden gate is open.</h2>
+      <p class="section-sub">
+        If you're hiring for software, ML, or AI engineering, or just want to talk
+        distributed training and agentic systems, I'd love to hear from you.
+      </p>
+      <p class="contact-mail">hc1242@scarletmail.rutgers.edu</p>
+      <div class="hero-links contact-links">
+        <a href="https://github.com/harjeet-chahal" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://linkedin.com/in/harjeet-singh-chahal" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://leetcode.com/u/harjeetchahal" target="_blank" rel="noopener">LeetCode</a>
+        <a href="resume/Harjeet_Singh_Chahal_Resume_SWE.pdf" target="_blank" rel="noopener">Résumé</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>&copy; <span id="year">2026</span> Harjeet Singh Chahal &middot; New Brunswick, NJ</p>
 </footer>
 
-</div>
-
-<script>
-/**
- * Only projects already present earlier.
- * Links added from your list.
- */
-const PROJECTS = [
-  {
-    title: "Distributed Rate Limiter",
-    meta: "High-Concurrency Systems",
-    desc: "Designed a Redis-backed distributed rate limiter using Token Bucket semantics to enforce consistent limits across scaled API instances.",
-    stack: "FastAPI • Redis • Lua • System Design",
-    link: "https://github.com/harjeet-chahal/Distributed-Rate-Limiter"
-  },
-  {
-    title: "VideoQuery (Multimodal RAG)",
-    meta: "Vision + Language",
-    desc: "Built a multimodal RAG system combining Whisper audio, CLIP visual embeddings, and LLMs for timestamped video question answering.",
-    stack: "CLIP • Whisper • Llama • ChromaDB",
-    link: "https://github.com/harjeet-chahal/VideoQuery-The-AI-Powered-Semantic-Video-Search"
-  },
-  {
-    title: "PneumoXAI",
-    meta: "Trustworthy Medical AI",
-    desc: "Developed an interpretable pneumonia detection system using ResNet50 with Grad-CAM, LIME, and SHAP for clinical transparency.",
-    stack: "PyTorch • OpenCV • XAI",
-    link: "https://github.com/harjeet-chahal/PneumoXAI"
-  },
-  {
-    title: "TaskFlow",
-    meta: "Java + Microservices",
-    desc: "Built a Spring Boot microservices project with clean APIs, service boundaries, and production-style structure.",
-    stack: "Java • Spring Boot • REST • Microservices",
-    link: "https://github.com/harjeet-chahal/TaskFlow"
-  },
-  {
-    title: "BuyMe Auction System",
-    meta: "Backend + Database Systems",
-    desc: "Implemented an auction-style web system emphasizing relational design, query-heavy features, and backend workflows.",
-    stack: "SQL • Backend • Web App",
-    link: "https://github.com/ishashah2303/BuyMe"
-  },
-  {
-    title: "RUOnCampus — Campus Concierge",
-    meta: "Agentic AI + Voice",
-    desc: "Prototyped a multi-agent campus assistant experience with tool-use style workflows and conversational UX.",
-    stack: "LLMs • Tools/Agents • Full-Stack",
-    link: "" // not provided in your list
-  },
-  {
-    title: "InsightHub — Market Research Agent",
-    meta: "LLM Automation",
-    desc: "Built an agent that structures research tasks into steps and produces summarized, usable outputs.",
-    stack: "LLMs • RAG • Automation",
-    link: "https://github.com/harjeet-chahal/InsightHub"
-  },
-  {
-    title: "CampusConnect",
-    meta: "Offline-First Full-Stack",
-    desc: "Designed an offline-first event/community concept with sync-friendly data thinking and a clean UI flow.",
-    stack: "Full-Stack • Sync • Mobile/Web",
-    link: "https://github.com/harjeet-chahal/CampusConnect"
-  },
-  {
-    title: "PickupPal",
-    meta: "Sports Scheduling",
-    desc: "Created a sports scheduling concept focused on quick coordination, availability, and simple matching.",
-    stack: "App • Scheduling • Full-Stack",
-    link: "https://github.com/harjeet-chahal/PickupPal"
-  },
-  {
-    title: "CommentAnalysis",
-    meta: "NLP",
-    desc: "Explored classification approaches across classic + deep learning pipelines for robust text understanding.",
-    stack: "NLP • BERT/RoBERTa • FastAPI",
-    link: "https://github.com/harjeet-chahal/CommentAnalysis"
-  }
-];
-
-const track = document.getElementById("projectsTrack");
-const viewport = document.getElementById("projectsViewport");
-
-function escapeHtml(str) {
-  return String(str).replace(/[&<>"']/g, s => ({
-    "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
-  }[s]));
-}
-
-function buildSlides() {
-  track.innerHTML = "";
-  PROJECTS.forEach(p => {
-    const title = escapeHtml(p.title);
-    const meta = escapeHtml(p.meta || "");
-    const desc = escapeHtml(p.desc || "");
-    const stack = escapeHtml(p.stack || "");
-    const link = (p.link || "").trim();
-
-    const titleHtml = link
-      ? `<a href="${link}" target="_blank" rel="noopener">${title}</a>`
-      : `${title}`;
-
-    const slide = document.createElement("div");
-    slide.className = "slide";
-    slide.innerHTML = `
-      <div class="card">
-        <h3>${titleHtml}</h3>
-        <div class="meta">${meta}</div>
-        <p>${desc}</p>
-        <div class="stack">${stack}</div>
-      </div>
-    `;
-    track.appendChild(slide);
-  });
-}
-
-/**
- * Mouse wheel -> horizontal scroll (so you can "scroll with cursor")
- * - Trackpads already do horizontal naturally; this improves mouse-wheel UX.
- */
-function enableWheelHorizontalScroll() {
-  viewport.addEventListener("wheel", (e) => {
-    // If user is already doing horizontal scrolling, let it happen.
-    if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;
-
-    // Convert vertical wheel to horizontal movement.
-    e.preventDefault();
-    viewport.scrollLeft += e.deltaY;
-  }, { passive: false });
-}
-
-buildSlides();
-enableWheelHorizontalScroll();
-</script>
+<script src="main.js" defer></script>
 </body>
 </html>
