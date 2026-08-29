@@ -610,8 +610,21 @@ h1, h2, h3 { color: var(--ink); font-weight: 400; }
   .about-grid { grid-template-columns: 1fr; }
   .about-card { max-width: 480px; }
 }
+/* Small desktops and iPad landscape: scale the photo down so it clears
+   the hero text with room to spare. */
+@media (max-width: 1180px) {
+  .hero-photo { width: min(19vw, 240px); }
+}
+/* Below 1020px there is no free corner, so the photo joins the flow:
+   centered between the hero text and the stats row. */
 @media (max-width: 1020px) {
-  .hero-photo { display: none; }
+  .hero-photo {
+    position: static;
+    display: block;
+    margin: 2.75rem auto 0;
+    width: min(62vw, 300px);
+  }
+  .hero-stats { margin-top: 2.75rem; }
 }
 @media (max-width: 860px) {
   .nav-links { display: none; }
